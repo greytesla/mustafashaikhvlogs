@@ -14,7 +14,7 @@ WORKDIR /app
 COPY package*.json yarn.lock ./ 
 
 # Install packages
-RUN npm install
+RUN npm install --force
 
 # Copy local code to the container image.
 COPY . ./
