@@ -8,19 +8,19 @@ ENV NPM_CONFIG_FUND=false
 
 # Create and change to the app directory.
 WORKDIR /app
-RUN npm install -g yarn
+# RUN npm install -g yarn
 
 # Copy the files to the container image
 COPY package*.json yarn.lock ./ 
 
 # Install packages
-RUN yarn install --frozen-lock-file
+RUN npm install
 
 # Copy local code to the container image.
 COPY . ./
 
 # Build the app.
-RUN yarn build
+RUN npm run build
 
 # Use the Caddy image
 FROM caddy
